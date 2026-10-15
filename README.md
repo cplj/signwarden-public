@@ -1,5 +1,16 @@
 # SignWarden 0.1.0
 
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](LICENSE)
+[![PyPI: pending release](https://img.shields.io/badge/PyPI-pending%20release-lightgrey.svg)](https://pypi.org/project/signwarden/)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/cplj/signwarden-public/badge)](https://scorecard.dev/viewer/?uri=github.com/cplj/signwarden-public)
+[![CodeQL](https://github.com/cplj/signwarden-public/actions/workflows/codeql.yml/badge.svg)](https://github.com/cplj/signwarden-public/actions/workflows/codeql.yml)
+[![CI](https://github.com/cplj/signwarden-public/actions/workflows/ci.yml/badge.svg)](https://github.com/cplj/signwarden-public/actions/workflows/ci.yml)
+
+**Who is this for:** Developers checking explicit permission and action cases against a trusted local adapter.
+**Not for:** Untrusted adapter execution or a deployment safety guarantee.
+
+[Compare honestly](docs/comparison/) · [Contributing](CONTRIBUTING.md)
+
 Run permission and action regression cases locally or in CI. The main command,
 `signwarden report`, writes reproducible JSON and Markdown evidence with SHA-256
 fingerprints. It uses the existing controlled-tool harness; `signwarden run`
