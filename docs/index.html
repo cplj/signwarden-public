@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>SignWarden — permission and action regression checks</title><link rel="stylesheet" href="style.css"></head>
+<body><main><p>SignWarden</p><h1>Check permission and action regressions locally.</h1>
+<p>Run explicit synthetic cases against a trusted adapter. Inspect PASS, FAIL or UNKNOWN results and the controlled-tool evidence behind them.</p>
+<h2>Quick start</h2><p>Python 3.10+; run from a local repository checkout.</p>
+<pre>python3 -m venv .venv
+. .venv/bin/activate
+python3 -m pip install .
+signwarden report --cases cases/sample.json --adapter examples/reference_gateway.py:Adapter --out artifacts/report</pre>
+<p>The reference adapter is expected to match all 12 public sample cases. The generated JSON and Markdown preserve inputs, checks and content fingerprints.</p>
+<p><a href="case-format.md">Case format</a> · <a href="schemas/suite.schema.json">Input schema</a> · <a href="schemas/report.schema.json">Output schema</a> · <a href="report-format.md">Report semantics</a></p>
+<h2>Evidence and limitations</h2><p><a href="comparison/">Comparison research is exploratory</a>; no independently validated comparison is currently available for publication. No advantage over handwritten tests is claimed.</p>
+<aside>A PASS applies only to the defined cases and adapter version. This is not a sandbox, production authorization gateway, security certification or deployment safety guarantee. Custom adapters execute Python code and may perform real actions.</aside>
+<footer>SignWarden Team · <a href="mailto:security@signwarden.com">security@signwarden.com</a> · Apache-2.0 · Copyright 2026 SignWarden Authors</footer></main></body></html>
