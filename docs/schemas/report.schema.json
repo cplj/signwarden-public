@@ -1,0 +1,221 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SignWarden full report or error",
+  "oneOf": [
+    {
+      "type": "object",
+      "required": [
+        "schema",
+        "status",
+        "summary",
+        "cases",
+        "input_suite",
+        "runtime",
+        "signwarden_version",
+        "suite",
+        "case_file",
+        "adapter",
+        "scope_note",
+        "source_sha256",
+        "reproduce",
+        "replay_note",
+        "report_sha256",
+        "case_file_sha256",
+        "input_suite_sha256",
+        "adapter_sha256",
+        "harness_sha256"
+      ],
+      "properties": {
+        "schema": {
+          "const": "signwarden.report.v1"
+        },
+        "status": {
+          "enum": [
+            "PASS",
+            "FAIL",
+            "UNKNOWN"
+          ]
+        },
+        "summary": {
+          "type": "object",
+          "required": [
+            "PASS",
+            "FAIL",
+            "UNKNOWN"
+          ],
+          "properties": {
+            "PASS": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "FAIL": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "UNKNOWN": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        },
+        "cases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "title",
+              "result",
+              "checks",
+              "not_executed_steps",
+              "stopped_reason",
+              "ledger"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "result": {
+                "enum": [
+                  "PASS",
+                  "FAIL",
+                  "UNKNOWN"
+                ]
+              },
+              "checks": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "step",
+                    "op",
+                    "result",
+                    "reason"
+                  ],
+                  "properties": {
+                    "result": {
+                      "enum": [
+                        "PASS",
+                        "FAIL",
+                        "UNKNOWN"
+                      ]
+                    }
+                  }
+                }
+              },
+              "not_executed_steps": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "stopped_reason": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "ledger": {
+                "type": "array",
+                "items": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "input_suite": {
+          "type": "object"
+        },
+        "runtime": {
+          "type": "object",
+          "required": [
+            "python",
+            "implementation"
+          ]
+        },
+        "signwarden_version": {
+          "type": "string"
+        },
+        "suite": {},
+        "case_file": {
+          "type": "string"
+        },
+        "adapter": {
+          "type": "string"
+        },
+        "scope_note": {
+          "type": "string"
+        },
+        "source_sha256": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "reproduce": {
+          "type": "string"
+        },
+        "replay_note": {
+          "type": "string"
+        },
+        "report_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "case_file_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "input_suite_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "adapter_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "harness_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "required": [
+        "schema",
+        "status",
+        "error"
+      ],
+      "properties": {
+        "schema": {
+          "const": "signwarden.error.v1"
+        },
+        "status": {
+          "const": "ERROR"
+        },
+        "error": {
+          "type": "object",
+          "required": [
+            "type",
+            "message"
+          ],
+          "properties": {
+            "type": {
+              "type": "string"
+            },
+            "message": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

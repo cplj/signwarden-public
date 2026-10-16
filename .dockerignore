@@ -1,0 +1,22 @@
+# Allow only public product files into the build context.
+**
+!Dockerfile
+!.dockerignore
+!pyproject.toml
+!README.md
+!LICENSE
+!NOTICE
+!signwarden/
+!signwarden/__init__.py
+!signwarden/__main__.py
+!signwarden/harness.py
+!signwarden/reporting.py
+!signwarden/api.py
+!examples/
+!examples/reference_gateway.py
+!cases/
+!cases/sample.json
+!docs/
+!docs/case-format.md
+!tests/
+!tests/test_product.py

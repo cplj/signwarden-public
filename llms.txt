@@ -1,0 +1,21 @@
+# SignWarden
+
+> Local and CI permission/action regression checks against trusted adapters.
+
+- [Start here](README.md): install with `python3 -m pip install .` (Python 3.10+).
+- [Input schema](docs/schemas/suite.schema.json): explicit fixtures, steps and expectations.
+- [Output schema](docs/schemas/report.schema.json): full report or setup/input error.
+- [Case format](docs/case-format.md): adapter operations and effect expectations.
+- [Report format](docs/report-format.md): result semantics, exit codes and replay limits.
+- [Comparison availability](docs/comparison/index.html): research is exploratory; no independently validated comparison is currently available for publication.
+- [Security](SECURITY.md): security@signwarden.com.
+
+Call from the repository root:
+`signwarden report --cases cases/sample.json --adapter examples/reference_gateway.py:Adapter --out artifacts/report`
+
+Read the generated JSON, not just process output. Exit codes: 0 PASS, 1 FAIL,
+2 UNKNOWN, 3 ERROR. HTTP 200 may contain PASS, FAIL or UNKNOWN.
+The operator chooses trusted adapter code; inputs cannot choose a new adapter.
+Only controlled effects are observed. No execution sandbox or adapter deadline.
+No inferred policy, deployment safety guarantee or claimed advantage over handwritten tests.
+Rerunning executes adapter code and may repeat effects in custom integrations.
