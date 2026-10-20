@@ -1,3 +1,5 @@
+> Truquence is the main project. This repository remains the authorization module entry point. See [Truquence](https://github.com/cplj/truquence-public) and the existing package instructions below.
+
 # SignWarden 0.1.0
 
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](LICENSE)
