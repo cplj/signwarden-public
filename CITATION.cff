@@ -1,9 +1,10 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite it as below."
+message: "If you reference this work, please cite it as below."
 title: "SignWarden"
+type: software
 authors:
   - name: "SignWarden Team"
+    email: "security@signwarden.com"
 repository-code: "https://github.com/cplj/signwarden-public"
 license: Apache-2.0
-date-released: "2026-10-15"
-version: "0.1.0"
+date-released: "2026-10-24"
