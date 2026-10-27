@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "signwarden"
+version = "0.0.1"
+description = "Early research on receipts and audit records for AI agent actions (name reserved; no verifier included)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "Apache-2.0"
+authors = [{ name = "SignWarden Authors" }]
+classifiers = ["Development Status :: 1 - Planning"]
+
+[project.urls]
+Homepage = "https://signwarden.com"
+Repository = "https://github.com/cplj/signwarden-public"
+Issues = "https://github.com/cplj/signwarden-public/issues"
+
+[project.scripts]
+signwarden = "signwarden:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["signwarden"]
