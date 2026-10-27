@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SignWarden: receipts and audit records for AI agent actions</title>
+<meta name="description" content="Early research on receipts that link an AI agent's authorization, action and result. A discussion draft, not a shipped verifier.">
+<style>:root{--bg:#f7f4ee;--ink:#1d1b17;--mute:#6b645a;--line:#ddd5c6;--accent:#8a3d12}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.65 -apple-system,"Segoe UI",system-ui,sans-serif}main{max-width:760px;margin:0 auto;padding:40px 20px 72px}h1{font:700 32px/1.2 Georgia,serif;margin:0 0 8px}h2{font:700 22px/1.3 Georgia,serif;margin:40px 0 10px}.lead{color:var(--mute);margin:0 0 18px}.status{border-left:3px solid var(--accent);padding:2px 0 2px 14px;margin:18px 0}table{width:100%;border-collapse:collapse;font-size:15px}th,td{text-align:left;padding:10px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--mute);font-size:13px}code{font-family:ui-monospace,monospace;font-size:.92em}a{color:var(--accent)}nav a{margin-right:14px}@media(prefers-color-scheme:dark){:root{--bg:#17140f;--ink:#efe6d6;--mute:#a79d8c;--line:#3a342a;--accent:#e08a5a}}@media(max-width:560px){th:nth-child(2),td:nth-child(2){display:block;border:0;padding-top:0}td:first-child{padding-bottom:2px;border:0}}</style></head>
+<body><main>
+<nav><a href="https://github.com/cplj/signwarden-public">GitHub</a><a href="https://github.com/cplj/signwarden-public/blob/main/README.zh-Hant.md">Traditional Chinese</a><a href="https://github.com/cplj/truquence-public">Truquence</a></nav>
+<h1>SignWarden</h1>
+<p class="lead">Receipts and audit records for AI agent actions: authorization → action → result. An authorization module of Truquence.</p>
+<p class="status"><strong>Status: early research.</strong> The proposed format and verifier have not been independently validated. This site describes a discussion draft; no verifier or hosted service is shipped.</p>
+<h2>The problem</h2>
+<p>An agent may have a permission record, a tool-call log and a separate record of the outcome. The research question is what a receipt must contain for a reviewer to trace an action back to its authorization and compare the requested action with the recorded result.</p>
+<h2>Receipt fields: discussion draft</h2>
+<p>These are proposed fields, not a stable specification or a working verification interface.</p>
+<table><thead><tr><th>Field</th><th>Intended content</th></tr></thead><tbody>
+<tr><td><code>receipt_id</code></td><td>Identifier that links the records for one action.</td></tr>
+<tr><td><code>actor</code></td><td>Agent identity and the party on whose behalf it acts.</td></tr>
+<tr><td><code>authorization</code></td><td>Issuer, permitted scope, constraints, validity period and reference to the permission record.</td></tr>
+<tr><td><code>action</code></td><td>Tool name, requested operation and reference to the inputs.</td></tr>
+<tr><td><code>result</code></td><td>Observed outcome, error or an explicit unknown result.</td></tr>
+<tr><td><code>timestamps</code></td><td>Times for authorization, execution and observation, with their sources.</td></tr>
+<tr><td><code>evidence</code></td><td>References to supporting records and their integrity information.</td></tr>
+</tbody></table>
+<p>Whether these fields are sufficient, and which evidence a verifier can check, remain research questions. A recorded claim alone does not establish that permission existed or that an outcome occurred.</p>
+<h2>Open format, private data</h2>
+<p>The plan is to open-source the receipt format and reference verifier. Hosted services and stored data remain private.</p>
+<h2>Report a problem</h2>
+<p>Email <a href="mailto:security@signwarden.com">security@signwarden.com</a> with a description, the field or statement involved, and a small synthetic example where useful. Do not send credentials, personal information or confidential records.</p>
+</main></body></html>

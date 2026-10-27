@@ -2,7 +2,7 @@
 
 Receipts and audit records for AI agent actions: authorization → action → result.
 
-**Status: research in progress.** There are no customers, and the proposed format and verifier have not been independently validated.
+**Status: early research.** The proposed format and verifier have not been independently validated.
 
 [Traditional Chinese](README.zh-Hant.md)
 
